@@ -1,12 +1,5 @@
 function GameRow({games, notify}) {
 
-  function handleDelete() {
-
-  }
-
-  function handleUpdate() {
-
-  }
 
   function handleDelete (game) {
     fetch(`http://localhost:8080/game/${game.id}`, {method: "DELETE"})
@@ -38,6 +31,19 @@ function GameRow({games, notify}) {
           <td><button type="button" className="btn btn-danger btn-sm"  onClick={() => handleDelete(game)}>Delete</button></td>
 
           <td><button type="button" className="btn btn-success btn-sm" onClick={() => notify({ action: "edit-form", game })}>Update</button></td>
+
+          <td>
+            <label>Quantity</label>
+            <select class="form-select" aria-label="Default select example">
+
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </td>
+
+          <td><button type="button" className="btn btn-warning btn-sm">Add to Cart</button></td>
+
         </tr>
 
       )
@@ -48,15 +54,7 @@ function GameRow({games, notify}) {
 
   return(
       <>
-        <div>
-
-        <tbody>
         {renderUserRows(games)}
-        </tbody>
-
-        </div>
-
-
       </>
   )
 }

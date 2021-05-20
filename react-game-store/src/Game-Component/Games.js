@@ -33,6 +33,8 @@ function Games() {
         //only select by one!
         console.log(games, filterText)
         return games.filter(g => g.studio.toLowerCase().includes(filterText.toLowerCase()))
+        //check the filter for each box that is checked
+
     }
 
     function updateFilterText(evt) {
@@ -94,10 +96,10 @@ function Games() {
         </div>
         {error && <div className="alert alert-danger">{error}</div>}
 
-{/*
-        {getFilteredGames(games).map( g => <GameTable games={games} notify={notify}/>)} */}
 
-        <GameTable games={games} notify={notify}/>
+        {/* {getFilteredGames(games).map( g => <GameTable games={games} notify={notify}/>)} */}
+
+        <GameTable games={getFilteredGames(games)} notify={notify}/>
 
 
         <div className="row mt-2">
@@ -106,7 +108,7 @@ function Games() {
             </div>
 
             <div className="col-4">
-                <GameFilterBy/>
+                <GameFilterBy filterText ={filterText} setFilterText = {setFilterText}/>
 
                 {/* <form id="filterEsrb">
                     <div className="mb-3">

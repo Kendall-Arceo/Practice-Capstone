@@ -1,4 +1,4 @@
-
+import GameRow from './GameRow';
 function GameTable({ games, notify, id}) {
   console.log(games);
   function handleDelete (game) {
@@ -8,36 +8,34 @@ function GameTable({ games, notify, id}) {
   }
 
 
-  function renderUserRows(games) {
-    return games
-        .map(
-          (game) => {
-            const { id, title, esrbRating, description, price, studio, quantity } = game;
-          //destructured game above
-        // <GameRow id ={id}></GameRow>
-        //game row component below, plus update and delete functionality
-          return(
+  // function renderUserRows(games) {
+  //   return games
+  //       .map(
+  //         (game) => {
+  //           const { id, title, esrbRating, description, price, studio, quantity } = game;
 
-        <tr>
+  //         return(
 
-          <td>{id}</td>
-          <td>{title}</td>
-          <td>{esrbRating}</td>
-          <td>{description}</td>
-          <td>{price}</td>
-          <td>{studio}</td>
-          <td>{quantity}</td>
+  //       <tr>
 
-          <td><button type="button" className="btn btn-danger btn-sm"  onClick={() => handleDelete(game)}>Delete</button></td>
+  //         <td>{id}</td>
+  //         <td>{title}</td>
+  //         <td>{esrbRating}</td>
+  //         <td>{description}</td>
+  //         <td>{price}</td>
+  //         <td>{studio}</td>
+  //         <td>{quantity}</td>
 
-          <td><button type="button" className="btn btn-success btn-sm" onClick={() => notify({ action: "edit-form", game })}>Update</button></td>
-        </tr>
+  //         <td><button type="button" className="btn btn-danger btn-sm"  onClick={() => handleDelete(game)}>Delete</button></td>
 
-      )
-    }
+  //         <td><button type="button" className="btn btn-success btn-sm" onClick={() => notify({ action: "edit-form", game })}>Update</button></td>
+  //       </tr>
 
-    );
-  }
+  //     )
+  //   }
+
+  //   );
+  // }
 
 
   const dataSorting = {};
@@ -66,8 +64,8 @@ function GameTable({ games, notify, id}) {
             </tr>
           </thead>
           <tbody>
-          {renderUserRows(games)}
-            {/* <GameRow games ={games} notify ={notify} id ={id}></GameRow> */}
+          {/* {renderUserRows(games)} */}
+            <GameRow games ={games} notify ={notify} id ={id}></GameRow>
           </tbody>
         </table>
 
